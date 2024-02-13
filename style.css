@@ -212,9 +212,20 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#footer{
-    margin-top: 50px;
+
+
+
+footer{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+footer p{
+    text-align: justify;
+    margin-right: 50px;
+}
+
+
+
 
 
 .additional-details {
@@ -241,12 +252,12 @@ body{
   }
 
 .additional-details .detail {
-    flex: 0 0 calc(50% - 20px); /* Adjusted width for better spacing */
+    flex: 0 0 calc(50% - 20px); 
     margin-bottom: 20px;
-    border: 2px solid black; /* Border */
-    border-radius: 8px; /* Border Radius */
-    padding: 15px; /* Padding for better spacing */
-    box-sizing: border-box; /* Include padding and border in width calculation */
+    border: 2px solid black; 
+    border-radius: 8px; 
+    padding: 15px; 
+    box-sizing: border-box; 
 }
 
 #about {
@@ -289,6 +300,7 @@ body{
     height: 100%;
 }
 
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -304,6 +316,10 @@ body{
     .additional-details .detail {
         flex: 0 0 100%;
     }
+    footer{
+        max-width: 106%;
+    }
+
 }
 
 
@@ -320,15 +336,21 @@ body{
         margin-top: 20px;
         width:80%;
     }
-
-    
-
-    
-
-    
-
     
 }
 
+@media (max-width: 991.98px) {
+    .navbar.fixed-top {
+      min-height: 56px; /* Adjust this value as needed */
+    }
+    .navbar .container-fluid {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .navbar-brand img {
+      max-height: 40px;
+      width: auto;
+    }
+  }
 
 

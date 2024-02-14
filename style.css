@@ -214,6 +214,60 @@ body{
 
 
 
+@keyframes cursor-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Apply styles for the cursor */
+#typing-text::after {
+    content: '|'; /* Cursor symbol */
+    animation: cursor-blink 0.7s infinite; /* Blinking animation for the cursor */
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: white; 
+    color: black; 
+    margin-top: 50px;
+    border-radius: 5px;
+    max-width: 50%;
+    margin-left: 25%;
+    border: 2px solid black;
+  }
+  
+  .button1:hover {
+    background-color: black;
+    color: white;
+  }
+  
+
+
+
+
+
+  .web-developer {
+    color: blue; /* Color for "Web Developer" */
+}
+
+.web-designer {
+    color: green; /* Color for "Web Designer" */
+}
+
+
 
 footer{
     font-family: Verdana, Geneva, Tahoma, sans-serif;

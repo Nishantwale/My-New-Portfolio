@@ -13,6 +13,8 @@
   />
 </head>
 <body>
+
+  
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
       <div class="container-fluid">
@@ -73,7 +75,26 @@
                       I am Pursuing My Undergraduate B.Tech Degree From Computer Science and Engineering Branch at N.K. Orchid College of Engineering and 
                       Technology, Solapur</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a href="./Resume/NISHANT_WALE_RESUME.pdf" download><button type="button" class="btn btn-outline-dark btn-lg px-4 me-md-2">Download Resume</button></a>
+                      <a id="downloadButton" href="./Resume/NISHANT_WALE_RESUME.pdf" download>
+                        <button type="button" class="btn btn-outline-dark btn-lg px-4 me-md-2">Download Resume</button>
+                      </a>
+                      
+                      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Nishant Says</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                Thanks For Downloading My Resume!
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
                         <div class="ic">
                             <a href="https://instagram.com/mr_nishant_283">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-instagram text-dark" viewBox="0 0 16 16">
@@ -107,13 +128,17 @@
           <div class="about-content">
             <img class="profile-img mb-3" src="./assets/Nishant2.JPG" alt="profile">
             <h1 class="text-body-emphasis">ABOUT ME</h1>
-            <p class="col-lg-8 mx-auto fs-5">
+            <p id="readListen" class="col-lg-8 mx-auto fs-5">
                 Hello Everyone! I have successfully completed my 3-year diploma in Computer Engineering with very good grades.
                 I am currently pursuing my undergraduate B.Tech degree from the Computer Science and Engineering branch at N.K. Orchid College of Engineering and Technology.
                 I have also completed a 4-month internship training at HighRadius Software Company.
                 I have a keen interest in Web development and Web designing.
                 I am also an Astronomy enthusiast 🌠🚀🛸
             </p>
+            <div class="button-container col-lg-8 mx-auto fs-5">
+              <button id="speakButton" class="w-100 mb-2 btn btn-lg rounded-3 btn-success mt-3" style="text-align: center; color: #F5F7F8;">Listen</button>
+              <button id="closeButton" class="w-100 mb-2 btn btn-lg rounded-3 btn-danger mt-3" style="text-align: center; color: #F5F7F8;">Stop</button>
+            </div>
             <!-- Additional Details -->
             <div class="additional-details">
                 <div class="detail">
@@ -651,6 +676,13 @@
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
         </ul>
       </div>
+      <div id="colorPalette" class="row justify-content-center justify-content-md-center py-4 my-1 text-center">
+        <div class="color" style="background-color: #FFF3C7" onclick="changeColor('#FFF3C7')"></div>
+        <div class="color" style="background-color: #FF8787" onclick="changeColor('#FF8787')"></div>
+        <div class="color" style="background-color: #9195F6" onclick="changeColor('#9195F6')"></div>
+        <div class="color" style="background-color: #D4F6CC" onclick="changeColor('#D4F6CC')"></div>
+        <div class="color" style="background-color: #F5F7F8" onclick="changeColor('#F5F7F8')"></div>
+      </div>
     </footer>
   </div>
 </section>
@@ -669,10 +701,62 @@
 </script>
 
 
+<script>
+  const speakButton = document.getElementById('speakButton');
+                const closeButton = document.getElementById('closeButton'); // Add this line to get the close button
+                const letterspeak = document.getElementById('readListen');
 
+                speakButton.addEventListener('click', () => {
+                    const text = letterspeak.innerText;
+                    speak(text);
+                });
 
+                closeButton.addEventListener('click', () => {
+                    stopSpeaking();
+                });
 
+                let speaking = false;
 
+                function speak(text) {
+                    if (!speaking) {
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        utterance.addEventListener('start', () => {
+                            speaking = true;
+                        });
+                        utterance.addEventListener('end', () => {
+                            speaking = false;
+                        });
+                        speechSynthesis.speak(utterance);
+                    }
+                }
+
+                function stopSpeaking() {
+                    if (speaking) {
+                        speechSynthesis.cancel();
+                        speaking = false;
+                    }
+                }
+                window.addEventListener('beforeunload', () => {
+                    stopSpeaking();
+                });
+</script>
+
+<script>
+  document.getElementById('downloadButton').addEventListener('click', function() {
+    // Show the modal after a small delay to allow time for the download to start
+    setTimeout(function() {
+      const myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+      myModal.show();
+    }, 100);
+  });
+  </script>
+
+<script>
+  function changeColor(color) {
+document.body.style.backgroundColor = color;
+}
+
+</script>
     
 
 <script>
